@@ -38,7 +38,7 @@ const resolvers = {
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedBooks: {bookdata} } },
+          { $addToSet: { savedBooks: bookdata } },
           { new: true}
         );
       }
@@ -48,7 +48,7 @@ const resolvers = {
       if (context.user) {
         return User.findOneAndDelete(
           { _id: context.user._id },
-          { $pull: { savedBooks: {bookId} } },
+          { $pull: { savedBooks: bookId } },
           { new: true}
         );
       }
